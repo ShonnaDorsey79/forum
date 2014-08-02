@@ -1,0 +1,41 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @discussion.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @discussion.body %>
+</p>
+
+
+
+<%= link_to 'Edit', edit_discussion_path(@discussion) if user_signed_in? %> |
+<%= link_to 'Back', discussions_path %>
+
+<ul>
+  <% @discussion.comments.each do |comment| %>
+  <li>
+    <%= comment.body %>
+    <%= comment.user.email unless comment.user.blank? %>
+    <%#= link_to 'Delete Comment', [@discussion, comment], method: :delete %>
+  </li>
+  <% end %>
+</ul>
+
+ <% if user_signed_in? %>
+    <%= form_for [@discussion, Comment.new] do |f| %>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+    <%= f.submit "Comment" %>
+    <% end %>
+  <% else %>
+    <%= link_to 'Sign in to comment', new_user_session_path %>
+  <% end %>
+ 
+
+
+  
+
