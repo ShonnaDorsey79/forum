@@ -12,7 +12,7 @@ class DiscussionsController < ApplicationController
   # GET /discussions/1
   # GET /discussions/1.json
   def show
-    @discussions = Discussion.find(params[:id])
+    @discussions = Discussion.find(params[:discussion_id])
   end
 
   # GET /discussions/new
