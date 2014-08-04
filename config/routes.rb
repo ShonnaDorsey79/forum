@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
 
   resources :discussions do
-    resources :comments, only: [:crete, :destroy]
+    resources :comments, only: [:create, :destroy]
   end
   
   root "discussions#index"
