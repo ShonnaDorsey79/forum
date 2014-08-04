@@ -32,8 +32,8 @@ class DiscussionsController < ApplicationController
 
     respond_to do |format|
       if @discussion.save
-        #format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
-        format.html { redirect_to :index, notice: 'Discussion was successfully created.' }
+        format.html { redirect_to @discussion, notice: 'Discussion was successfully created.' }
+        #format.html { redirect_to :index, notice: 'Discussion was successfully created.' }
 
         format.json { render :show, status: :created, location: @discussion }
       else
