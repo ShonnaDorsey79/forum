@@ -20,7 +20,7 @@
   <li>
     <%= comment.body %>
     <%= comment.user.email unless comment.user.blank? %>
-    <%#= link_to 'Delete Comment', [@discussion, comment], method: :delete %>
+    <%= link_to 'Delete Comment', [@discussion, comment], method: :delete %>
   </li>
   <% end %>
 </ul>

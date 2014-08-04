@@ -17,7 +17,7 @@
           <td><%= discussion.title %></td>
           <td><%= discussion.body %></td>
           <td><%= discussion.user.email unless discussion.user.blank? %></td>
-          <td><%= link_to 'Show', discussion %></td>
+          <td><%= link_to 'Show', discussion_path %></td>
           <td><%= link_to 'Edit', edit_discussion_path(discussion) if user_signed_in? %></td>
           <% if current_user %>
           <td><%= link_to 'Destroy', discussion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
