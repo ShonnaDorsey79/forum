@@ -8,11 +8,14 @@ class DiscussionsController < ApplicationController
   def index
     @discussions = Discussion.all
   end
-
+  
   # GET /discussions/1
   # GET /discussions/1.json
   def show
-    @discussions = Discussion.find(params[:discussion_id])
+    # It looks like it's looking for params[:id] not params[:discussion_id], so the DB find is erring out.
+    # Above you have a method being called (set_discussion) before the actions :show, :edit, :update, :destroy
+    # Since that method is setting the @discussion value you can remove the line below.
+    #@discussions = Discussion.find(params[:discussion_id])
   end
 
   # GET /discussions/new
