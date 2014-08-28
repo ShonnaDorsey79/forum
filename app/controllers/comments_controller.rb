@@ -9,6 +9,7 @@ class CommentsController < ApplicationController
     comment = @discussion.comments.new(comment_params)
     comment.user = current_user
     comment.save
+    CommentMailer.new_comment(comment).deliver
     redirect_to @discussion
 
       end
